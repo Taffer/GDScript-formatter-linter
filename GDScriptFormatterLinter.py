@@ -12,12 +12,9 @@ from SublimeLinter.lint import Linter
 
 
 class GDScriptFormatterLinter(Linter):
-    cmd: tuple[str] = (
-        "gdscript-formatter",
-        "lint"
-    )
-    regex: str = r'^(?P<filename>.+?):(?P<line>\d+):(?P<code>[a-z\-]+):(?P<error_type>[a-z]+): (?P<message>.*)$'
+    cmd: tuple[str] = ("gdscript-formatter", "lint")
+    regex: str = r"^(?P<filename>.+?):(?P<line>\d+):(?P<code>[a-z\-]+):(?P<error_type>[a-z]+): (?P<message>.*)$"
     multiline: bool = False
     defaults: dict[str, str] = {  # noqa: RUF012
-        'selector': 'source.gdscript'
+        "selector": "source.gdscript"
     }
