@@ -17,5 +17,11 @@ class GDScriptFormatterLinter(Linter):
         "selector": "source.gdscript"
     }
     multiline: bool = False
-    regex: str = r"^(?P<filename>.+?):(?P<line>\d+):(?P<code>[a-z\-]+):(?P<error_type>[a-z]+): (?P<message>.*)$"
+    regex: tuple[str] = (
+        r"^(?P<filename>.+?):",
+        r"(?P<line>\d+):",
+        r"(?P<code>[a-z\-]+):",
+        r"(?P<error_type>[a-z]+): ",
+        r"(?P<message>.+?(?P<near>'[^']+'){1}?.*)$",
+    )
     tempfile_suffix = ".gd"
