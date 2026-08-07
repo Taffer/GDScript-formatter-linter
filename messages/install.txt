@@ -1,0 +1,7 @@
+SublimeLinter-contrib-GDScriptFormatterLinter
+---------------------------------------------
+This linter plugin for SublimeLinter provides an interface to GDQuest's
+GDScriptFormatter in lint mode.
+
+For more information, please see:
+https://worktree.ca/taffer/GDScript-formatter-linter
