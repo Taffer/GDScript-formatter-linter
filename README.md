@@ -8,6 +8,23 @@ You must
 [install GDScript-formatter](https://github.com/GDQuest/GDScript-formatter#installing-and-running-the-formatter)
 before you can successfully use this linter.
 
+## Settings
+
+To tweak settings, add a `gdscriptformatterlinter` section to your user
+`SublimeLinter.sublime-settings`file. For example:
+
+```py
+    "gdscriptformatterlinter" : {
+        "args": [
+            "--max-line-length",
+            "132",
+        ]
+    },
+```
+
+Note that the `--pretty` argument will prevent the plugin from operating
+properly.
+
 ## Credits
 
 Repo icon by [Kenney](https://kenney.nl/)
