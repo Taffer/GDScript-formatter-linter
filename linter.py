@@ -1,4 +1,4 @@
-# A GDScript linter using GDQuest's GDScript-formatter.
+# A GDScript linter using GDQuest's GDScript-formatter's lint mode.
 #
 # Copyright © 2026, Chris Herborth (chrish@pobox.com)
 #
@@ -11,12 +11,13 @@ from __future__ import annotations
 from SublimeLinter.lint import Linter
 
 
-class GDScriptFormatterLinter(Linter):
+class GDScriptFormatter(Linter):
     cmd: tuple[str] = ("gdscript-formatter", "lint", "${args}", "${temp_file}")
     defaults: dict[str, str] = {  # noqa: RUF012
         "selector": "source.gdscript"
     }
     multiline: bool = False
+    name: str = "gdscript-formatter"
     regex: str = (
         r"^(?P<filename>.+?):"
         + r"(?P<line>\d+):"

@@ -10,11 +10,11 @@ before you can successfully use this linter.
 
 ## Settings
 
-To tweak settings, add a `gdscriptformatterlinter` section to your user
+To tweak settings, add a `gdscript-formatter` section to your user
 `SublimeLinter.sublime-settings`file. For example:
 
 ```py
-    "gdscriptformatterlinter" : {
+    "gdscript-formatter" : {
         "args": [
             "--max-line-length",
             "132",
@@ -22,8 +22,40 @@ To tweak settings, add a `gdscriptformatterlinter` section to your user
     },
 ```
 
-Note that the `--pretty` argument will prevent the plugin from operating
-properly.
+**Note:** The current version of GDScrpit-formatter (0.24.0) can't find your
+project's `.editorconfig` file, so you'll have to add `args` to duplicate the
+settings. For example, if you use these `.editorconfig` settings:
+
+```ini
+[*.gd]
+indent_size = 4
+indent_style = space
+insert_final_newline = true
+max_line_length = 132
+trim_trailing_whitespace = true
+```
+
+Your `gdscript-formatter` section would look like:
+
+```py
+    "gdscript-formatter" : {
+        "args": [
+            "--indent-size",
+            "4",
+            "--use-spaces",
+            "--max-line-length",
+            "132",
+        ]
+    },
+```
+
+The `insert_final_newline` and `trim_trailing_whitespace` don't have equivalents
+on the `gdscript-formatter` command-line. I'm also not sure if any of these
+affect lint warnings other than `--max-line-length`…
+
+(I've opened
+[an issue](https://github.com/GDQuest/GDScript-formatter/issues/318) with the
+GDScript-formatter dev that should address this.)
 
 ## Credits
 
